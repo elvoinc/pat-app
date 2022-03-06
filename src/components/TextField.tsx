@@ -3,7 +3,6 @@ import {
   FormErrorMessage,
   FormLabel,
   Input,
-  Radio,
 } from "@chakra-ui/react";
 import { Field, FieldHookConfig, useField } from "formik";
 import { FC } from "react";
@@ -21,7 +20,7 @@ export const TextField: FC<FieldHookConfig<string> & ICustomFieldProps> = ({
   return (
     <FormControl isInvalid={meta.touched && !!meta.error}>
       <FormLabel>{label}</FormLabel>
-      <Field as={Radio} {...field} {...props} />
+      <Field as={Input} {...field} {...props} />
       <FormErrorMessage>{meta.error}</FormErrorMessage>
     </FormControl>
   );
