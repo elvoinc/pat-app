@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "patapp",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "/Users/elvoinc/Documents/Build/Dev/pat-app/amplify/backend/api/patapp/schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 7
+    },
+    "additionalAuthTypes": [
+      {
+        "mode": "AMAZON_COGNITO_USER_POOLS",
+        "cognitoUserPoolId": "authpatappe4c0e32c"
+      }
+    ]
+  }
+}

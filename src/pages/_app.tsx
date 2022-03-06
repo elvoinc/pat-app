@@ -4,21 +4,22 @@ import Head from "next/head";
 import Layout from "../components/Layout";
 import theme from "../theme";
 
+import Amplify, { Auth } from "aws-amplify";
+import awsconfig from "../aws-exports";
+import AuthContext from "../context/AuthContext";
+
+Amplify.configure({ ...awsconfig, ssr: true });
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Head>
-        <title>Pat App</title>
-        <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width"
-        />
-      </Head>
-      <ChakraProvider theme={theme}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ChakraProvider>
+      <AuthContext>
+        <ChakraProvider theme={theme}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ChakraProvider>
+      </AuthContext>
     </>
   );
 }
